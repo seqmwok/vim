@@ -2,26 +2,22 @@ set number
 set relativenumber
 set cursorline
 set showmatch
+set scrolloff=8
+set mouse=a
 
-set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 
-set expandtab
-
 set tabstop=4
 set shiftwidth=4
 set smarttab
+set expandtab
 
-set scrolloff=8
-set mouse=a
-set clipboard=unnamedplus
 set noswapfile
-
-set encoding=utf8
 set history=500
-
+set encoding=utf8
+set clipboard=unnamedplus
 
 call plug#begin()
 
@@ -41,28 +37,20 @@ call plug#end()
 filetype plugin indent on
 
 syntax on
+set termguicolors
 set background=dark
 colorscheme gruvbox
 
-
-" ============ [ KEYMAPS ] ============ "
-
 let g:mapleader = ' '
-
-" Command Mode & Esc
 
 nnoremap ; :
 
 inoremap jk <ESC>
 vnoremap jk <ESC>
 
-" File Operations
-
 nnoremap <leader>w <CMD>w<CR>
 nnoremap <leader>q <CMD>q<CR>
 nnoremap <leader>Q <CMD>qa!<CR>
-
-" Line Manipulation
 
 nnoremap <silent> <A-j> :m .+1<CR>==
 nnoremap <silent> <A-k> :m .-2<CR>==
@@ -72,8 +60,6 @@ vnoremap <silent> <A-k> :m '<-2<CR>gv=gv
 
 vnoremap < <gv
 vnoremap > >gv
-
-" Navigation & Centering
 
 nnoremap <silent> n nzzzv
 nnoremap <silent> N Nzzzv
@@ -89,8 +75,6 @@ vnoremap H ^
 nnoremap L $
 vnoremap L $
 
-" Windows Management
-
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -101,19 +85,27 @@ nnoremap <C-Up> :resize -2<CR>
 nnoremap <C-Right> :vertical resize -2<CR>
 nnoremap <C-Left> :vertical resize +2<CR>
 
+
 " ============ [ AIRLINE ] ============ "
 
 let g:airline_powerline_fonts = 1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#buffer_nr_show = 0
 
 let g:airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#buffer_min_count = 2
 
 let g:airline#extensions#tabline#show_tab_type = 0
+
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_section_x = ''
+let g:airline_section_y = '%Y'
+let g:airline_section_z = '%l:%c'
+let g:airline_section_c = '%F %m'
+let g:airline_skip_empty_sections = 1
 
 " ============ [ NERDTree ] ============ "
 
